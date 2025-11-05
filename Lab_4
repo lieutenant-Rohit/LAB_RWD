@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions & Student Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #ddd;
+        }
+        .function-output {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Functions Demonstration</h1>
+    
+    <h2>1. Function Declaration</h2>
+    <div class="function-output" id="func1"></div>
+
+    <h2>2. Function Expression</h2>
+    <div class="function-output" id="func2"></div>
+
+    <h2>3. Arrow Function</h2>
+    <div class="function-output" id="func3"></div>
+
+    <h2>4. Anonymous Function</h2>
+    <div class="function-output" id="func4"></div>
+
+    <h2>5. IIFE (Immediately Invoked Function Expression)</h2>
+    <div class="function-output" id="func5"></div>
+
+    <h2>6. Higher-Order Function</h2>
+    <div class="function-output" id="func6"></div>
+
+    <h2>7. Constructor Function</h2>
+    <div class="function-output" id="func7"></div>
+
+    <hr>
+
+    <h1>Student Details</h1>
+    <div id="studentTable"></div>
+
+    <script>
+        // ========== VARIOUS TYPES OF FUNCTIONS ==========
+
+        // 1. Function Declaration
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+        document.getElementById('func1').innerHTML = "Result: " + greet('John');
+
+        // 2. Function Expression
+        const add = function(a, b) {
+            return a + b;
+        };
+        document.getElementById('func2').innerHTML = "Result: 5 + 3 = " + add(5, 3);
+
+        // 3. Arrow Function
+        const multiply = (a, b) => a * b;
+        document.getElementById('func3').innerHTML = "Result: 4 × 6 = " + multiply(4, 6);
+
+        // 4. Anonymous Function
+        setTimeout(function() {
+            document.getElementById('func4').innerHTML = "Result: Anonymous function executed!";
+        }, 100);
+
+        // 5. IIFE (Immediately Invoked Function Expression)
+        const iifeResult = (function(x, y) {
+            return x + y;
+        })(10, 20);
+        document.getElementById('func5').innerHTML = "Result: 10 + 20 = " + iifeResult;
+
+        // 6. Higher-Order Function
+        function operate(a, b, operation) {
+            return operation(a, b);
+        }
+        const result = operate(15, 5, function(x, y) {
+            return x - y;
+        });
+        document.getElementById('func6').innerHTML = "Result: 15 - 5 = " + result;
+
+        // 7. Constructor Function
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.display = function() {
+                return "Name: " + this.name + ", Age: " + this.age;
+            };
+        }
+        const person1 = new Person('Alice', 25);
+        document.getElementById('func7').innerHTML = "Result: " + person1.display();
+
+        // ========== STUDENT OBJECT ==========
+
+        // Creating Student object
+        function Student(id, name, age, course, fees) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+            this.course = course;
+            this.fees = fees;
+        }
+
+        // Creating multiple students
+        const students = [
+            new Student(101, 'Rahul Sharma', 20, 'Computer Science', 50000),
+            new Student(102, 'Priya Patel', 21, 'Information Technology', 48000),
+            new Student(103, 'Amit Kumar', 19, 'Electronics', 52000),
+            new Student(104, 'Sneha Reddy', 22, 'Mechanical', 51000),
+            new Student(105, 'Vikram Singh', 20, 'Civil Engineering', 49000)
+        ];
+
+        // Function to display students in table
+        function displayStudentTable(studentArray) {
+            let tableHTML = '<table>';
+            tableHTML += '<tr><th>ID</th><th>Name</th><th>Age</th><th>Course</th><th>Fees</th></tr>';
+            
+            for (let i = 0; i < studentArray.length; i++) {
+                tableHTML += '<tr>';
+                tableHTML += '<td>' + studentArray[i].id + '</td>';
+                tableHTML += '<td>' + studentArray[i].name + '</td>';
+                tableHTML += '<td>' + studentArray[i].age + '</td>';
+                tableHTML += '<td>' + studentArray[i].course + '</td>';
+                tableHTML += '<td>' + studentArray[i].fees + '</td>';
+                tableHTML += '</tr>';
+            }
+            
+            tableHTML += '</table>';
+            return tableHTML;
+        }
+
+        // Display the table
+        document.getElementById('studentTable').innerHTML = displayStudentTable(students);
+    </script>
+</body>
+</html>
