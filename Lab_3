@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Pseudo Classes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* :hover */
+        .box {
+            background-color: lightblue;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .box:hover {
+            background-color: blue;
+            color: white;
+        }
+
+        /* :focus */
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid gray;
+        }
+
+        input:focus {
+            border-color: green;
+        }
+
+        /* :first-child and :last-child */
+        li {
+            padding: 10px;
+            background-color: #ddd;
+            margin: 5px 0;
+        }
+
+        li:first-child {
+            background-color: yellow;
+        }
+
+        li:last-child {
+            background-color: lightgreen;
+        }
+
+        /* :nth-child */
+        .item {
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .item:nth-child(odd) {
+            background-color: #ffcccc;
+        }
+
+        .item:nth-child(even) {
+            background-color: #ccccff;
+        }
+
+        /* link pseudo-classes */
+        a {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pseudo Classes - Simple Examples</h1>
+
+    <h2>1. :hover (hover over the box)</h2>
+    <div class="box">Hover over me!</div>
+
+    <h2>2. :focus (click inside the input)</h2>
+    <input type="text" placeholder="Click here">
+
+    <h2>3. :first-child and :last-child</h2>
+    <ul>
+        <li>First item - Yellow</li>
+        <li>Second item - Gray</li>
+        <li>Third item - Gray</li>
+        <li>Last item - Green</li>
+    </ul>
+
+    <h2>4. :nth-child(odd) and :nth-child(even)</h2>
+    <div class="item">Item 1 - Pink (odd)</div>
+    <div class="item">Item 2 - Blue (even)</div>
+    <div class="item">Item 3 - Pink (odd)</div>
+    <div class="item">Item 4 - Blue (even)</div>
+
+    <h2>5. Link pseudo-classes</h2>
+    <a href="#link1">Click me (I change color when visited)</a>
+    <a href="#link2">Another link</a>
+
+</body>
+</html>
